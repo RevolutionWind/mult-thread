@@ -19,7 +19,7 @@ public class ObjectPool<T, R> {
 
     // 构造函数
     ObjectPool(int size, T t) {
-        pool = new Vector<T>() {
+        pool = new Vector<>() {
         };
         for (int i = 0; i < size; i++) {
             pool.add(t);
@@ -45,7 +45,7 @@ public class ObjectPool<T, R> {
         // 线程池
         ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(16, 32, 3000, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(10));
         // 创建对象池
-        ObjectPool<Long, String> pool = new ObjectPool<>(10, 2L);
+        ObjectPool<Long, String> pool = new basic.ObjectPool<>(10, 2L);
         for (int i = 0; i < 16; i++) {
             poolExecutor.execute(() -> {
                 // 通过对象池获取t，之后执行
