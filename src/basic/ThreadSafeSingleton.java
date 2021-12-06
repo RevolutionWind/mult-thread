@@ -14,7 +14,7 @@ package basic;
  * <p>
  * 如果线程A到了第二步，线程B访问getInstance()方法，则线程B会直接返回空地址M。
  * 线程B后续的访问instance操作会直接报空指针异常
- * <p>
+ *
  * 解决: private volatile static ThreadSafeSingleton instance;
  *
  * @author sunxy
@@ -25,12 +25,9 @@ public class ThreadSafeSingleton {
 
     private static ThreadSafeSingleton instance;
 
-    /**
-     * getInstance
-     *
-     * @return ThreadSafeSingleton
-     */
+
     private static ThreadSafeSingleton getInstance() {
+        // 哈哈
         if (instance == null) {
             synchronized (ThreadSafeSingleton.class) {
                 if (instance == null) {
